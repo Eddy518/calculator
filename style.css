@@ -9,7 +9,8 @@
   color-scheme: dark;
 }
 :root {
-  --primary-clr: rgb(98, 10, 85);
+  --primary-clr: rgb(142, 156, 39);
+  --calc-display-clr: rgb(147, 17, 17);
 }
 .container {
   display: flex;
@@ -17,7 +18,7 @@
 }
 .calc-wrapper {
   width: 420px;
-  height: 500px;
+  height: 550px;
   padding: 12px;
   border: 6px solid var(--primary-clr);
   display: flex;
@@ -32,6 +33,13 @@
   font-weight: bolder;
   color: var(--primary-clr);
   font-family: "regista", Arial, sans-serif;
+}
+.calc-display {
+  height: 65px;
+  border-radius: 6px;
+  font-family: "Calculator", Arial, sans-serif;
+  color: var(--calc-display-clr);
+  font-size: 50px;
 }
 .calc-btn-wrapper {
   padding: 14px;
