@@ -1,8 +1,15 @@
+@font-face {
+  font-family: "regista";
+  src: url("assets/fonts/regista/Regista.ttf");
+}
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   color-scheme: dark;
+}
+:root {
+  --primary-clr: rgb(98, 10, 85);
 }
 .container {
   display: flex;
@@ -12,19 +19,36 @@
   width: 420px;
   height: 500px;
   padding: 12px;
-  border: 6px solid salmon;
+  border: 6px solid var(--primary-clr);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.calc-icon {
+  display: flex;
+  justify-content: center;
+  padding: 2px;
+  font-size: 23px;
+  font-weight: bolder;
+  color: var(--primary-clr);
+  font-family: "regista", Arial, sans-serif;
+}
+.calc-btn-wrapper {
+  padding: 14px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 .calc-row {
   display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 .calc-row > * {
   border-radius: 50%;
   background-color: purple;
-  width: 40px;
-  height: 40px;
+  width: 55px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
