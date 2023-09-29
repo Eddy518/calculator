@@ -40,6 +40,9 @@
   font-family: "Calculator", Arial, sans-serif;
   color: var(--calc-display-clr);
   font-size: 50px;
+  /* * SWITCH CALCULATOR NUMBERS TO THE RIGHT */
+  display: flex;
+  flex-direction: row-reverse;
 }
 .calc-btn-wrapper {
   padding: 14px;
