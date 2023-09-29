@@ -40,12 +40,13 @@
   font-family: "Calculator", Arial, sans-serif;
   color: var(--calc-display-clr);
   font-size: 50px;
+  padding-right: 5px;
   /* * SWITCH CALCULATOR NUMBERS TO THE RIGHT */
   display: flex;
   flex-direction: row-reverse;
 }
 .calc-btn-wrapper {
-  padding: 14px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -60,6 +61,12 @@
   background-color: purple;
   width: 55px;
   height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calc-footer {
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
