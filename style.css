@@ -91,3 +91,7 @@
 .calc-footer {
   border: 2px solid lightseagreen;
 }
+#reload {
+  padding: 16px;
+  margin: 0 auto;
+}
