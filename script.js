@@ -7,12 +7,15 @@ calcDisplay.textContent = 0;
 let flag = false;
 let operatorFlag = false;
 let num1 = [];
+const buttonSound = new Audio("assets/audio/btn-click.mp3");
 calcNumbers.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (flag === false && operatorFlag === false) {
       calcDisplay.textContent = "";
       flag = true;
     }
+    //buttonSound.currentTime = 0;// * Allow for playing multiple times
+    //buttonSound.play();
     calcDisplay.textContent += btn.dataset.number;
     num1.push(btn.dataset.number);
   });
