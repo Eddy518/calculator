@@ -68,9 +68,11 @@
 .btn-operator:hover {
   background-color: #91351691;
 }
-.btn-clear {
+.btn-clear,
+.btn-all-clear {
   background-color: rgb(104, 13, 13);
 }
+.btn-all-clear:hover,
 .btn-clear:hover {
   background-color: rgba(104, 13, 13, 0.649);
 }

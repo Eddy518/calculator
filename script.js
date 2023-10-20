@@ -1,15 +1,28 @@
 const calcDisplay = document.querySelector(".calc-display");
-const calcBtns = document.querySelectorAll(".btn");
+const calcNumbers = document.querySelectorAll(".btn-number");
+const calcOperators = document.querySelectorAll(".btn-operator");
+const calcAllClear = document.querySelector(".btn-all-clear");
 calcDisplay.textContent = 0;
 let flag = false;
-calcBtns.forEach((btn) => {
+let operatorFlag = false;
+calcNumbers.forEach((btn) => {
   btn.addEventListener("click", () => {
-    if (flag === false) {
+    if (flag === false && operatorFlag === false) {
       calcDisplay.textContent = "";
       flag = true;
     }
     calcDisplay.textContent += btn.dataset.number;
   });
+});
+calcOperators.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    operatorFlag = true;
+    calcDisplay.textContent += btn.dataset.operator;
+  });
+});
+calcAllClear.addEventListener("click", () => {
+  calcDisplay.textContent = "";
+  calcDisplay.textContent = 0;
 });
 function add(num1, num2) {
   return num1 + num2;
