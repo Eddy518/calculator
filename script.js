@@ -1,10 +1,14 @@
 const calcDisplay = document.querySelector(".calc-display");
 const calcBtns = document.querySelectorAll(".btn");
 calcDisplay.textContent = 0;
-
+let flag = false;
 calcBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    calcDisplay.textContent += btn.textContent;
+    if (flag === false) {
+      calcDisplay.textContent = "";
+      flag = true;
+    }
+    calcDisplay.textContent += btn.dataset.number;
   });
 });
 function add(num1, num2) {
