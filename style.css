@@ -56,9 +56,33 @@
   justify-content: center;
   gap: 12px;
 }
+.btn-number {
+  background-color: rgb(82, 13, 82);
+}
+.btn-number:hover {
+  background-color: rgba(128, 0, 128, 0.403);
+}
+.btn-operator {
+  background-color: #913516;
+}
+.btn-operator:hover {
+  background-color: #91351691;
+}
+.btn-clear {
+  background-color: rgb(104, 13, 13);
+}
+.btn-clear:hover {
+  background-color: rgba(104, 13, 13, 0.649);
+}
+.btn-equals {
+  background-color: #441111;
+}
+.btn-equals:hover {
+  background-color: #441111ad;
+}
 .calc-row > * {
   border-radius: 50%;
-  background-color: purple;
+
   width: 55px;
   height: 55px;
   display: flex;
@@ -68,7 +92,6 @@
 }
 .calc-row > *:hover {
   cursor: pointer;
-  background-color: rgba(128, 0, 128, 0.403);
   transition-delay: 10ms;
 }
 .calc-footer {
