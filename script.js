@@ -2,9 +2,11 @@ const calcDisplay = document.querySelector(".calc-display");
 const calcNumbers = document.querySelectorAll(".btn-number");
 const calcOperators = document.querySelectorAll(".btn-operator");
 const calcAllClear = document.querySelector(".btn-all-clear");
+const calcClear = document.querySelector(".btn-clear");
 calcDisplay.textContent = 0;
 let flag = false;
 let operatorFlag = false;
+let num1 = [];
 calcNumbers.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (flag === false && operatorFlag === false) {
@@ -12,12 +14,14 @@ calcNumbers.forEach((btn) => {
       flag = true;
     }
     calcDisplay.textContent += btn.dataset.number;
+    num1.push(btn.dataset.number);
   });
 });
 calcOperators.forEach((btn) => {
   btn.addEventListener("click", () => {
     operatorFlag = true;
     calcDisplay.textContent += btn.dataset.operator;
+    console.log(num1);
   });
 });
 calcAllClear.addEventListener("click", () => {
@@ -25,6 +29,9 @@ calcAllClear.addEventListener("click", () => {
   calcDisplay.textContent = 0;
   flag = false;
   operatorFlag = false;
+});
+calcClear.addEventListener("click", () => {
+  calcDisplay.textContent = calcDisplay.textContent.slice(0, -1); //*Remove the last string from the display
 });
 function add(num1, num2) {
   return num1 + num2;
