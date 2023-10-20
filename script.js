@@ -23,6 +23,8 @@ calcOperators.forEach((btn) => {
 calcAllClear.addEventListener("click", () => {
   calcDisplay.textContent = "";
   calcDisplay.textContent = 0;
+  flag = false;
+  operatorFlag = false;
 });
 function add(num1, num2) {
   return num1 + num2;
