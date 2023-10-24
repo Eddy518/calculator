@@ -6,7 +6,10 @@ const calcClear = document.querySelector(".btn-clear");
 calcDisplay.textContent = 0;
 let flag = false;
 let operatorFlag = false;
-let num1 = [];
+let num1Status = false;
+let num1;
+let num2;
+let numResult;
 const buttonSound = new Audio("assets/audio/btn-click.mp3");
 calcNumbers.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -17,12 +20,18 @@ calcNumbers.forEach((btn) => {
     //buttonSound.currentTime = 0;// * Allow for playing multiple times
     //buttonSound.play();
     calcDisplay.textContent += btn.dataset.number;
-    num1.push(btn.dataset.number);
+    if (num1Status === false) {
+      num1.push(btn.dataset.number);
+    } else {
+      num2.push(btn.dataset.number);
+    }
   });
 });
 calcOperators.forEach((btn) => {
   btn.addEventListener("click", () => {
-    operatorFlag = true;
+    num1Status = true;
+    console.log(`num1 is ${num1}`);
+    console.log(`num2 is ${num2}`);
     calcDisplay.textContent += btn.dataset.operator;
     console.log(num1);
   });
@@ -53,16 +62,12 @@ function operate(num1, operator, num2) {
   switch (operator) {
     case "+":
       return add(num1, num2);
-      break;
     case "-":
       return subtract(num1, num2);
-      break;
     case "*":
       return multiply(num1, num2);
-      break;
     case "/":
       return divide(num1, num2);
-      break;
     default:
       console.log("Invalid operator or operand");
   }
