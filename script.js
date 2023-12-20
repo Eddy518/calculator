@@ -43,7 +43,15 @@ calcAllClear.addEventListener("click", () => {
   operatorFlag = false;
 });
 calcClear.addEventListener("click", () => {
-  calcDisplay.textContent = calcDisplay.textContent.slice(0, -1); //*Remove the last string from the display
+  //  if (calcDisplay.textContent.length > 1) {
+  //    calcDisplay.textContent = calcDisplay.textContent.slice(0, -1); //*Remove the last string from the display
+  //  } else {
+  //    calcDisplay.textContent = 0;
+  //  }
+  calcDisplay.textContent =
+    calcDisplay.textContent.length > 1
+      ? calcDisplay.textContent.slice(0, -1)
+      : 0;
 });
 function add(num1, num2) {
   return num1 + num2;
