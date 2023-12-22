@@ -9,6 +9,7 @@ let operatorFlag = false;
 let num1Status = false;
 let num1;
 let num2;
+let operator;
 let numResult;
 const buttonSound = new Audio("assets/audio/btn-click.mp3");
 calcNumbers.forEach((btn) => {
@@ -29,6 +30,8 @@ calcNumbers.forEach((btn) => {
 });
 calcOperators.forEach((btn) => {
   btn.addEventListener("click", () => {
+    operator = btn.dataset.operator;
+    console.log(operator);
     num1Status = true;
     console.log(`num1 is ${num1}`);
     console.log(`num2 is ${num2}`);
@@ -50,7 +53,7 @@ calcClear.addEventListener("click", () => {
   //  }
   calcDisplay.textContent =
     calcDisplay.textContent.length > 1
-      ? calcDisplay.textContent.slice(0, -1)
+      ? calcDisplay.textContent.slice(0, -1) // * Remove the last string from the display
       : 0;
 });
 function add(num1, num2) {
