@@ -7,8 +7,8 @@ calcDisplay.textContent = 0;
 let flag = false;
 let operatorFlag = false;
 let num1Status = false;
-let num1;
-let num2;
+let num1 = [];
+let num2 = [];
 let operator;
 let numResult;
 const buttonSound = new Audio("assets/audio/btn-click.mp3");
@@ -32,6 +32,7 @@ calcOperators.forEach((btn) => {
   btn.addEventListener("click", () => {
     operator = btn.dataset.operator;
     console.log(operator);
+    console.log(`num1 after operator ${num1.join("")}`);
     num1Status = true;
     console.log(`num1 is ${num1}`);
     console.log(`num2 is ${num2}`);
