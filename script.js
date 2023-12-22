@@ -6,8 +6,8 @@ const calcClear = document.querySelector(".btn-clear");
 const calcEquals = document.querySelector(".btn-equals");
 const calcDecimal = document.querySelector(".btn-decimal");
 const calcToggle = document.querySelector(".btn-toggle");
-
 calcDisplay.textContent = 0;
+
 let flag = false;
 let operatorFlag = false;
 let num1Status = false;
@@ -58,7 +58,6 @@ function calculate(num1, num2, operator) {
   calcDisplay.textContent = result;
   console.log(num1);
   //  num1.splice(0, num1.length, result); //lol
-  console.log(num1);
   operator = null;
   console.log(result);
 }
@@ -84,7 +83,15 @@ calcOperators.forEach((btn) => {
   btn.addEventListener("click", () => {
     playSound();
     operator = btn.dataset.operator;
+    /*TODO:  BREAKING CHANGE
+    //    if (num1 && num2 && operator) {
+    //      console.log(`num1 in ops ${num1}`);
+    //      console.log(`num2 in ops ${num2}`);
+    //      calculate(num1, num2, operator);
+    //    }
+    */
     console.log(operator);
+    console.log(`Result is ${result}`);
     if (result) {
       //if a calculation is made after previous calculation
       console.log(`If result is true num1 is ${num1}`);
@@ -148,7 +155,6 @@ calcToggle.addEventListener("click", (e) => {
 const reload = document.querySelector("#reload");
 reload.addEventListener("click", () => location.reload());
 //TODO: Modify +/- operator to toggle respectively
-//TODO: Any minus(-) operator should remove the beginning 0
-//TODO: Remove number from num1 or num2 array after pressing clear or allclear button
 //TODO: Display comma if numbers exceed 3
+//TODO: Allow for only pair calculation
 //
