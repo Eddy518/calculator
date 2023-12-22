@@ -13,6 +13,44 @@ let num2 = [];
 let operator;
 let numResult;
 const buttonSound = new Audio("assets/audio/btn-click.mp3");
+
+function add(num1, num2) {
+  return num1 + num2;
+}
+function subtract(num1, num2) {
+  return num1 - num2;
+}
+function multiply(num1, num2) {
+  return num1 * num2;
+}
+function divide(num1, num2) {
+  return num1 / num2;
+}
+
+function operate(num1, operator, num2) {
+  switch (operator) {
+    case "+":
+      return add(num1, num2);
+    case "-":
+      return subtract(num1, num2);
+    case "*":
+      return multiply(num1, num2);
+    case "/":
+      return divide(num1, num2);
+    default:
+      console.log("Invalid operator or operand");
+  }
+}
+
+function calculate(num1, num2, operator) {
+  let first = Number(num1.join(""));
+  let second = Number(num2.join(""));
+  console.log(`num1 is ${first} with type ${typeof first}`);
+  console.log(`num2 is ${second} with type ${typeof second}`);
+  return operate(first, operator, second);
+}
+
+console.log(calculate(["3", "4"], ["1", "2"], "+"));
 calcNumbers.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (flag === false && operatorFlag === false) {
@@ -64,33 +102,7 @@ calcClear.addEventListener("click", () => {
       ? calcDisplay.textContent.slice(0, -1) // * Remove the last string from the display
       : 0;
 });
-function add(num1, num2) {
-  return num1 + num2;
-}
-function subtract(num1, num2) {
-  return num1 - num2;
-}
-function multiply(num1, num2) {
-  return num1 * num2;
-}
-function divide(num1, num2) {
-  return num1 / num2;
-}
 
-function operate(num1, operator, num2) {
-  switch (operator) {
-    case "+":
-      return add(num1, num2);
-    case "-":
-      return subtract(num1, num2);
-    case "*":
-      return multiply(num1, num2);
-    case "/":
-      return divide(num1, num2);
-    default:
-      console.log("Invalid operator or operand");
-  }
-}
 const result = operate(3, "+", 2);
 console.log(result);
 /*  DEBUGGING */
