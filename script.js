@@ -3,6 +3,7 @@ const calcNumbers = document.querySelectorAll(".btn-number");
 const calcOperators = document.querySelectorAll(".btn-operator");
 const calcAllClear = document.querySelector(".btn-all-clear");
 const calcClear = document.querySelector(".btn-clear");
+const calcEquals = document.querySelector(".btn-equals");
 calcDisplay.textContent = 0;
 let flag = false;
 let operatorFlag = false;
@@ -22,6 +23,7 @@ calcNumbers.forEach((btn) => {
     //buttonSound.play();
     calcDisplay.textContent += btn.dataset.number;
     if (num1Status === false) {
+      // If operator is clicked move next set of numbers to second array??
       num1.push(btn.dataset.number);
     } else {
       num2.push(btn.dataset.number);
@@ -39,6 +41,11 @@ calcOperators.forEach((btn) => {
     calcDisplay.textContent += btn.dataset.operator;
     console.log(num1);
   });
+});
+calcEquals.addEventListener("click", () => {
+  console.log(`num1 is ${num1.join("")}`);
+  console.log(`operator is ${operator}`);
+  console.log(`num2 is ${num2.join("")}`);
 });
 calcAllClear.addEventListener("click", () => {
   calcDisplay.textContent = "";
@@ -89,3 +96,5 @@ console.log(result);
 /*  DEBUGGING */
 const reload = document.querySelector("#reload");
 reload.addEventListener("click", () => location.reload());
+//TODO: Modify +/- operator to toggle respectively
+//TODO: Any minus(-) operator should remove the beginning 0
