@@ -92,10 +92,11 @@ calcEquals.addEventListener("click", () => {
 calcAllClear.addEventListener("click", () => {
   calcDisplay.textContent = "";
   calcDisplay.textContent = 0;
-  num1 = null;
-  num2 = null;
   flag = false;
   operatorFlag = false;
+  num1Status = false;
+  num1 = [];
+  num2 = [];
 });
 calcClear.addEventListener("click", () => {
   //  if (calcDisplay.textContent.length > 1) {
@@ -113,11 +114,10 @@ calcClear.addEventListener("click", () => {
 });
 calcDecimal.addEventListener("click", (e) => {
   calcDisplay.textContent = e.target.dataset.decimal;
-  console.log(e);
 });
+
 calcToggle.addEventListener("click", (e) => {
   calcDisplay.textContent = e.target.dataset.toggle;
-  console.log(e);
 });
 
 const result = operate(3, "+", 2);
@@ -129,3 +129,6 @@ reload.addEventListener("click", () => location.reload());
 //TODO: Any minus(-) operator should remove the beginning 0
 //TODO: Remove number from num1 or num2 array after pressing clear or allclear button
 //TODO: Display comma if numbers exceed 3
+//Fixme Bug: num1 and num2 not emptied after allclear
+//         : new numbers are all pushed to num2
+//         : operator works fine :)
