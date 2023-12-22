@@ -62,10 +62,14 @@
 .btn-number:hover {
   background-color: rgba(128, 0, 128, 0.403);
 }
-.btn-operator {
+.btn-operator,
+.btn-decimal,
+.btn-toggle {
   background-color: #913516;
 }
-.btn-operator:hover {
+.btn-operator:hover,
+.btn-decimal:hover,
+.btn-toggle:hover {
   background-color: #91351691;
 }
 .btn-clear,

@@ -4,6 +4,9 @@ const calcOperators = document.querySelectorAll(".btn-operator");
 const calcAllClear = document.querySelector(".btn-all-clear");
 const calcClear = document.querySelector(".btn-clear");
 const calcEquals = document.querySelector(".btn-equals");
+const calcDecimal = document.querySelector(".btn-decimal");
+const calcToggle = document.querySelector(".btn-toggle");
+
 calcDisplay.textContent = 0;
 let flag = false;
 let operatorFlag = false;
@@ -107,6 +110,14 @@ calcClear.addEventListener("click", () => {
       ? calcDisplay.textContent.slice(0, -1) // * Remove the last string from the display
       : 0;
   console.log(num1, num2);
+});
+calcDecimal.addEventListener("click", (e) => {
+  calcDisplay.textContent = e.target.dataset.decimal;
+  console.log(e);
+});
+calcToggle.addEventListener("click", (e) => {
+  calcDisplay.textContent = e.target.dataset.toggle;
+  console.log(e);
 });
 
 const result = operate(3, "+", 2);
