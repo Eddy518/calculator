@@ -47,18 +47,19 @@ function calculate(num1, num2, operator) {
   let second = Number(num2.join(""));
   console.log(`num1 is ${first} with type ${typeof first}`);
   console.log(`num2 is ${second} with type ${typeof second}`);
-  return operate(first, operator, second);
+  let result = operate(first, operator, second);
+  calcDisplay.textContent = result;
+  operator = null;
 }
 
-console.log(calculate(["3", "4"], ["1", "2"], "+"));
 calcNumbers.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (flag === false && operatorFlag === false) {
       calcDisplay.textContent = "";
       flag = true;
     }
-    //buttonSound.currentTime = 0;// * Allow for playing multiple times
-    //buttonSound.play();
+    buttonSound.currentTime = 0; // * Allow for playing multiple times
+    buttonSound.play();
     calcDisplay.textContent += btn.dataset.number;
     if (num1Status === false) {
       // If operator is clicked move next set of numbers to second array??
@@ -68,6 +69,7 @@ calcNumbers.forEach((btn) => {
     }
   });
 });
+
 calcOperators.forEach((btn) => {
   btn.addEventListener("click", () => {
     operator = btn.dataset.operator;
@@ -80,14 +82,15 @@ calcOperators.forEach((btn) => {
     console.log(num1);
   });
 });
+
 calcEquals.addEventListener("click", () => {
-  console.log(`num1 is ${num1.join("")}`);
-  console.log(`operator is ${operator}`);
-  console.log(`num2 is ${num2.join("")}`);
+  calculate(num1, num2, operator);
 });
 calcAllClear.addEventListener("click", () => {
   calcDisplay.textContent = "";
   calcDisplay.textContent = 0;
+  num1 = null;
+  num2 = null;
   flag = false;
   operatorFlag = false;
 });
@@ -97,10 +100,13 @@ calcClear.addEventListener("click", () => {
   //  } else {
   //    calcDisplay.textContent = 0;
   //  }
+  //check if array is num1 or num2 and pop it
+  num1Status === false ? num1.pop() : num2.pop();
   calcDisplay.textContent =
     calcDisplay.textContent.length > 1
       ? calcDisplay.textContent.slice(0, -1) // * Remove the last string from the display
       : 0;
+  console.log(num1, num2);
 });
 
 const result = operate(3, "+", 2);
@@ -110,3 +116,5 @@ const reload = document.querySelector("#reload");
 reload.addEventListener("click", () => location.reload());
 //TODO: Modify +/- operator to toggle respectively
 //TODO: Any minus(-) operator should remove the beginning 0
+//TODO: Remove number from num1 or num2 array after pressing clear or allclear button
+//TODO: Display comma if numbers exceed 3
