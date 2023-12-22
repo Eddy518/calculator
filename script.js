@@ -109,6 +109,7 @@ calcEquals.addEventListener("click", () => {
 calcAllClear.addEventListener("click", () => {
   calcDisplay.textContent = "";
   calcDisplay.textContent = 0;
+  result = null; // this prevents from using previous result for next calculation in line 85
   flag = false;
   operatorFlag = false;
   num1Status = false;
@@ -146,7 +147,4 @@ reload.addEventListener("click", () => location.reload());
 //TODO: Any minus(-) operator should remove the beginning 0
 //TODO: Remove number from num1 or num2 array after pressing clear or allclear button
 //TODO: Display comma if numbers exceed 3
-//Fixme Cant perform calculation with previous result
-//     : 3 *2 = 6
-//     6 * 4 = (Unexpected result)
 //
