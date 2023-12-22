@@ -124,6 +124,7 @@ calcClear.addEventListener("click", () => {
   //  }
   //check if array is num1 or num2 and pop it
   num1Status === false ? num1.pop() : num2.pop();
+  flag = false;
   calcDisplay.textContent =
     calcDisplay.textContent.length > 1
       ? calcDisplay.textContent.slice(0, -1) // * Remove the last string from the display
