@@ -45,7 +45,10 @@ function operate(num1, operator, num2) {
       console.log("Invalid operator or operand");
   }
 }
-
+function playSound() {
+  buttonSound.currentTime = 0; // * Allow for playing multiple times
+  buttonSound.play();
+}
 function calculate(num1, num2, operator) {
   let first = Number(num1.join(""));
   let second = Number(num2.join(""));
@@ -66,8 +69,7 @@ calcNumbers.forEach((btn) => {
       calcDisplay.textContent = "";
       flag = true;
     }
-    buttonSound.currentTime = 0; // * Allow for playing multiple times
-    buttonSound.play();
+    playSound();
     calcDisplay.textContent += btn.dataset.number;
     if (num1Status === false) {
       // If operator is clicked move next set of numbers to second array??
@@ -80,6 +82,7 @@ calcNumbers.forEach((btn) => {
 
 calcOperators.forEach((btn) => {
   btn.addEventListener("click", () => {
+    playSound();
     operator = btn.dataset.operator;
     console.log(operator);
     if (result) {
@@ -132,11 +135,11 @@ calcClear.addEventListener("click", () => {
   console.log(num1, num2);
 });
 calcDecimal.addEventListener("click", (e) => {
-  calcDisplay.textContent = e.target.dataset.decimal;
+  calcDisplay.textContent += e.target.dataset.decimal;
 });
 
 calcToggle.addEventListener("click", (e) => {
-  calcDisplay.textContent = e.target.dataset.toggle;
+  calcDisplay.textContent += e.target.dataset.toggle;
 });
 
 //const result = operate(3, "+", 2);
