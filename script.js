@@ -15,6 +15,7 @@ let num1 = [];
 let num2 = [];
 let operator;
 let numResult;
+let result;
 const buttonSound = new Audio("assets/audio/btn-click.mp3");
 
 function add(num1, num2) {
@@ -50,9 +51,13 @@ function calculate(num1, num2, operator) {
   let second = Number(num2.join(""));
   console.log(`num1 is ${first} with type ${typeof first}`);
   console.log(`num2 is ${second} with type ${typeof second}`);
-  let result = operate(first, operator, second);
+  result = operate(first, operator, second);
   calcDisplay.textContent = result;
+  console.log(num1);
+  //  num1.splice(0, num1.length, result); //lol
+  console.log(num1);
   operator = null;
+  console.log(result);
 }
 
 calcNumbers.forEach((btn) => {
@@ -77,10 +82,22 @@ calcOperators.forEach((btn) => {
   btn.addEventListener("click", () => {
     operator = btn.dataset.operator;
     console.log(operator);
+    if (result) {
+      //if a calculation is made after previous calculation
+      console.log(`If result is true num1 is ${num1}`);
+      num1.splice(0, num1.length);
+      num2.splice(0, num2.length);
+      num1.push(result);
+      console.log(`test ${num1}`);
+    }
     console.log(`num1 after operator ${num1.join("")}`);
     num1Status = true;
     console.log(`num1 is ${num1}`);
     console.log(`num2 is ${num2}`);
+    if (flag === false && operator === "-") {
+      calcDisplay.textContent = "";
+      flag = true;
+    }
     calcDisplay.textContent += btn.dataset.operator;
     console.log(num1);
   });
@@ -120,8 +137,8 @@ calcToggle.addEventListener("click", (e) => {
   calcDisplay.textContent = e.target.dataset.toggle;
 });
 
-const result = operate(3, "+", 2);
-console.log(result);
+//const result = operate(3, "+", 2);
+//console.log(result);
 /*  DEBUGGING */
 const reload = document.querySelector("#reload");
 reload.addEventListener("click", () => location.reload());
@@ -129,6 +146,7 @@ reload.addEventListener("click", () => location.reload());
 //TODO: Any minus(-) operator should remove the beginning 0
 //TODO: Remove number from num1 or num2 array after pressing clear or allclear button
 //TODO: Display comma if numbers exceed 3
-//Fixme Bug: num1 and num2 not emptied after allclear
-//         : new numbers are all pushed to num2
-//         : operator works fine :)
+//Fixme Cant perform calculation with previous result
+//     : 3 *2 = 6
+//     6 * 4 = (Unexpected result)
+//
