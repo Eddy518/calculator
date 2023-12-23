@@ -58,10 +58,12 @@ function clearOperand() {
   num1 = [];
   num2 = [];
   num1.push(result);
+  result = null; //clear result
   num1Status = true;
   operator = null;
   console.log(operator);
 }
+
 function playSound() {
   buttonSound.currentTime = 0; // * Allow for playing multiple times
   buttonSound.play();
@@ -106,26 +108,19 @@ calcOperators.forEach((btn) => {
     //      calculate(num1, num2, operator);
     //    }
     */
-    //console.log(operator);
-    //console.log(`Result is ${result}`);
     if (result) {
       //if a calculation is made after previous calculation
-      // console.log(`If result is true num1 is ${num1}`);
       num1.splice(0, num1.length);
       num2.splice(0, num2.length);
       num1.push(result);
       //console.log(`test ${num1}`);
     }
-    //console.log(`num1 after operator ${num1.join("")}`);
     num1Status = true;
-    //console.log(`num1 is ${num1}`);
-    //console.log(`num2 is ${num2}`);
     if (flag === false && operator === "-") {
       calcDisplay.textContent = "";
       flag = true;
     }
     calcDisplay.textContent += btn.dataset.operator;
-    //console.log(num1);
   });
 });
 
@@ -147,7 +142,6 @@ calcClear.addEventListener("click", () => {
     calcDisplay.textContent.length > 1
       ? calcDisplay.textContent.slice(0, -1) // * Remove the last string from the display
       : 0;
-  //console.log(num1, num2);
 });
 
 calcDecimal.addEventListener("click", (e) => {
