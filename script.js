@@ -100,13 +100,16 @@ calcNumbers.forEach((btn) => {
 calcOperators.forEach((btn) => {
   btn.addEventListener("click", () => {
     playSound();
-    operator = btn.dataset.operator;
-    num1Status = true; //if operator is clicked then that means it's time to move to the next array
-    if (flag === false && operator === "-") {
-      calcDisplay.textContent = "";
-      flag = true;
+    if (!operator) {
+      //only if there is no operator
+      operator = btn.dataset.operator;
+      num1Status = true; //if operator is clicked then that means it's time to move to the next array
+      if (flag === false && operator === "-") {
+        calcDisplay.textContent = "";
+        flag = true;
+      }
+      calcDisplay.textContent += btn.dataset.operator;
     }
-    calcDisplay.textContent += btn.dataset.operator;
   });
 });
 
@@ -122,7 +125,11 @@ calcAllClear.addEventListener("click", () => {
 
 calcClear.addEventListener("click", () => {
   //check if array is num1 or num2 and pop it
+  if (calcDisplay.textContent == "0") {
+    clearAllCalc();
+  }
   if (num2.length === 0) {
+    operator = null;
     // If user deletes one digit that was a result of previous calculation and attempts to calculate result
     let str = num1.join("");
     console.log(str);
