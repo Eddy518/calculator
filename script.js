@@ -48,6 +48,7 @@ function operate(num1, operator, num2) {
 function clearAllCalc() {
   result = null; // this prevents from using previous result for next calculation in line 85
   flag = false;
+  operator = null;
   num1Status = false;
   num1 = [];
   num2 = [];
@@ -74,6 +75,9 @@ function calculate(num1, num2, operator) {
   result = operate(first, operator, second);
   if (!Number.isInteger(result)) {
     result = result.toFixed(10);
+    if (result.endsWith(0)) {
+      result = result.replace(/\.?0+$/, "");
+    }
   }
   calcDisplay.textContent = result;
   clearOperand();
