@@ -54,7 +54,14 @@ function clearAllCalc() {
   num1 = [];
   num2 = [];
 }
-function clearCalc() {}
+function clearOperand() {
+  num1 = [];
+  num2 = [];
+  num1.push(result);
+  num1Status = true;
+  operator = null;
+  console.log(operator);
+}
 function playSound() {
   buttonSound.currentTime = 0; // * Allow for playing multiple times
   buttonSound.play();
@@ -68,9 +75,7 @@ function calculate(num1, num2, operator) {
     result = result.toFixed(10);
   }
   calcDisplay.textContent = result;
-  //console.log(num1);
-  operator = null;
-  //console.log(result);
+  clearOperand();
 }
 
 calcNumbers.forEach((btn) => {
