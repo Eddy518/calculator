@@ -9,7 +9,6 @@ const calcToggle = document.querySelector(".btn-toggle");
 calcDisplay.textContent = 0;
 
 let flag = false;
-let operatorFlag = false;
 let num1Status = false;
 let num1 = [];
 let num2 = [];
@@ -49,19 +48,19 @@ function operate(num1, operator, num2) {
 function clearAllCalc() {
   result = null; // this prevents from using previous result for next calculation in line 85
   flag = false;
-  operatorFlag = false;
   num1Status = false;
   num1 = [];
   num2 = [];
 }
+
 function clearOperand() {
   num1 = [];
   num2 = [];
+  result.toString();
   num1.push(result);
   result = null; //clear result
   num1Status = true;
   operator = null;
-  console.log(operator);
 }
 
 function playSound() {
@@ -82,11 +81,12 @@ function calculate(num1, num2, operator) {
 
 calcNumbers.forEach((btn) => {
   btn.addEventListener("click", () => {
-    if (flag === false && operatorFlag === false) {
+    playSound();
+
+    if (flag === false) {
       calcDisplay.textContent = "";
       flag = true;
     }
-    playSound();
     calcDisplay.textContent += btn.dataset.number;
     if (num1Status === false) {
       // If operator is clicked move next set of numbers to second array??
@@ -101,21 +101,7 @@ calcOperators.forEach((btn) => {
   btn.addEventListener("click", () => {
     playSound();
     operator = btn.dataset.operator;
-    /*TODO:  BREAKING CHANGE
-    //    if (num1 && num2 && operator) {
-    //      console.log(`num1 in ops ${num1}`);
-    //      console.log(`num2 in ops ${num2}`);
-    //      calculate(num1, num2, operator);
-    //    }
-    */
-    if (result) {
-      //if a calculation is made after previous calculation
-      num1.splice(0, num1.length);
-      num2.splice(0, num2.length);
-      num1.push(result);
-      //console.log(`test ${num1}`);
-    }
-    num1Status = true;
+    num1Status = true; //if operator is clicked then that means it's time to move to the next array
     if (flag === false && operator === "-") {
       calcDisplay.textContent = "";
       flag = true;
@@ -136,6 +122,16 @@ calcAllClear.addEventListener("click", () => {
 
 calcClear.addEventListener("click", () => {
   //check if array is num1 or num2 and pop it
+  if (num2.length === 0) {
+    // If user deletes one digit that was a result of previous calculation and attempts to calculate result
+    let str = num1.join("");
+    console.log(str);
+    str = str.slice(0, str.length - 1);
+    num1.splice(0, num1.length); //clear previous num1 before popping
+    num1.push(str);
+    console.log(num1);
+    console.log(str);
+  }
   num1Status === false ? num1.pop() : num2.pop();
   flag = false;
   calcDisplay.textContent =
@@ -157,7 +153,3 @@ calcToggle.addEventListener("click", (e) => {
 /*  DEBUGGING */
 const reload = document.querySelector("#reload");
 reload.addEventListener("click", () => location.reload());
-//TODO: Modify +/- operator to toggle respectively
-//TODO: Display comma if numbers exceed 3
-//TODO: Allow for only pair calculation
-//
