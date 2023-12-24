@@ -6,6 +6,7 @@ const calcClear = document.querySelector(".btn-clear");
 const calcEquals = document.querySelector(".btn-equals");
 const calcDecimal = document.querySelector(".btn-decimal");
 const calcToggle = document.querySelector(".btn-toggle");
+const buttonSound = new Audio("assets/audio/btn-click.mp3");
 calcDisplay.textContent = 0;
 
 let flag = false;
@@ -13,9 +14,7 @@ let num1Status = false;
 let num1 = [];
 let num2 = [];
 let operator;
-let numResult;
-let result;
-const buttonSound = new Audio("assets/audio/btn-click.mp3");
+let result = 0;
 
 function add(num1, num2) {
   return num1 + num2;
@@ -44,7 +43,6 @@ function operate(num1, operator, num2) {
       console.log("Invalid operator or operand");
   }
 }
-
 function clearAllCalc() {
   result = null; // this prevents from using previous result for next calculation in line 85
   flag = false;
@@ -57,7 +55,7 @@ function clearAllCalc() {
 function clearOperand() {
   num1 = [];
   num2 = [];
-  result.toString();
+  result = result.toString();
   num1.push(result);
   result = null; //clear result
   num1Status = true;
@@ -73,6 +71,7 @@ function calculate(num1, num2, operator) {
   let first = Number(num1.join(""));
   let second = Number(num2.join(""));
   result = operate(first, operator, second);
+  console.log(result);
   if (!Number.isInteger(result)) {
     result = result.toFixed(10);
     if (result.endsWith(0)) {
@@ -96,6 +95,7 @@ calcNumbers.forEach((btn) => {
       // If operator is clicked move next set of numbers to second array??
       num1.push(btn.dataset.number);
     } else {
+      //  operator = null;
       num2.push(btn.dataset.number);
     }
   });
@@ -112,8 +112,14 @@ calcOperators.forEach((btn) => {
         calcDisplay.textContent = "";
         flag = true;
       }
-      calcDisplay.textContent += btn.dataset.operator;
+    } else {
+      console.log(num1);
+      console.log(num2);
+      console.log(operator);
+      calculate(num1, num2, operator);
+      console.log("You already have an operator and two operands");
     }
+    calcDisplay.textContent += btn.dataset.operator;
   });
 });
 
@@ -149,10 +155,6 @@ calcClear.addEventListener("click", () => {
     calcDisplay.textContent.length > 1
       ? calcDisplay.textContent.slice(0, -1) // * Remove the last string from the display
       : 0;
-});
-
-calcDecimal.addEventListener("click", (e) => {
-  calcDisplay.textContent += e.target.dataset.decimal;
 });
 
 calcToggle.addEventListener("click", (e) => {
