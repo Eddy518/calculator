@@ -39,8 +39,6 @@ function operate(num1, operator, num2) {
       return multiply(num1, num2);
     case "/":
       return divide(num1, num2);
-    default:
-      console.log("Invalid operator or operand");
   }
 }
 
@@ -72,7 +70,6 @@ function calculate(num1, num2, operator) {
   let first = Number(num1.join(""));
   let second = Number(num2.join(""));
   result = operate(first, operator, second);
-  console.log(result);
   if (!Number.isInteger(result)) {
     result = result.toFixed(10);
     if (result.endsWith(0)) {
@@ -114,12 +111,8 @@ calcOperators.forEach((btn) => {
         flag = true;
       }
     } else {
-      console.log(num1);
-      console.log(num2);
-      console.log(operator);
       calculate(num1, num2, operator);
       operator = btn.dataset.operator;
-      console.log("You already have an operator and two operands");
     }
     calcDisplay.textContent += btn.dataset.operator;
   });
@@ -133,6 +126,10 @@ calcAllClear.addEventListener("click", () => {
   calcDisplay.textContent = "";
   calcDisplay.textContent = 0;
   clearAllCalc();
+});
+
+calcToggle.addEventListener("click", (e) => {
+  calcDisplay.textContent += e.target.dataset.toggle;
 });
 
 //calcClear.addEventListener("click", () => {
@@ -159,12 +156,3 @@ calcAllClear.addEventListener("click", () => {
 //      : 0;
 //});
 //
-calcToggle.addEventListener("click", (e) => {
-  calcDisplay.textContent += e.target.dataset.toggle;
-});
-
-//const result = operate(3, "+", 2);
-//console.log(result);
-/*  DEBUGGING */
-const reload = document.querySelector("#reload");
-reload.addEventListener("click", () => location.reload());
