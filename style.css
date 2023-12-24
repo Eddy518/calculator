@@ -6,7 +6,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color-scheme: dark;
+  /* color-scheme: dark; */
+  background-image: url("/assets/images/background.jpg");
 }
 :root {
   --primary-clr: rgb(142, 156, 39);
@@ -114,6 +115,7 @@
   border: 2px solid chartreuse;
 }
 .calc-btn-wrapper {
+  background-color: #d3d7d5;
   border: 2px solid darkred;
 }
 .calc-footer {

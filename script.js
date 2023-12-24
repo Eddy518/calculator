@@ -2,7 +2,7 @@ const calcDisplay = document.querySelector(".calc-display");
 const calcNumbers = document.querySelectorAll(".btn-number");
 const calcOperators = document.querySelectorAll(".btn-operator");
 const calcAllClear = document.querySelector(".btn-all-clear");
-const calcClear = document.querySelector(".btn-clear");
+//const calcClear = document.querySelector(".btn-clear");
 const calcEquals = document.querySelector(".btn-equals");
 const calcDecimal = document.querySelector(".btn-decimal");
 const calcToggle = document.querySelector(".btn-toggle");
@@ -43,6 +43,7 @@ function operate(num1, operator, num2) {
       console.log("Invalid operator or operand");
   }
 }
+
 function clearAllCalc() {
   result = null; // this prevents from using previous result for next calculation in line 85
   flag = false;
@@ -59,7 +60,7 @@ function clearOperand() {
   num1.push(result);
   result = null; //clear result
   num1Status = true;
-  operator = null;
+  //operator = null;
 }
 
 function playSound() {
@@ -95,7 +96,7 @@ calcNumbers.forEach((btn) => {
       // If operator is clicked move next set of numbers to second array??
       num1.push(btn.dataset.number);
     } else {
-      //  operator = null;
+      // operator = null;
       num2.push(btn.dataset.number);
     }
   });
@@ -117,6 +118,7 @@ calcOperators.forEach((btn) => {
       console.log(num2);
       console.log(operator);
       calculate(num1, num2, operator);
+      operator = btn.dataset.operator;
       console.log("You already have an operator and two operands");
     }
     calcDisplay.textContent += btn.dataset.operator;
@@ -133,30 +135,30 @@ calcAllClear.addEventListener("click", () => {
   clearAllCalc();
 });
 
-calcClear.addEventListener("click", () => {
-  //check if array is num1 or num2 and pop it
-  if (calcDisplay.textContent == "0") {
-    clearAllCalc();
-  }
-  if (num2.length === 0) {
-    operator = null;
-    // If user deletes one digit that was a result of previous calculation and attempts to calculate result
-    let str = num1.join("");
-    console.log(str);
-    str = str.slice(0, str.length - 1);
-    num1.splice(0, num1.length); //clear previous num1 before popping
-    num1.push(str);
-    console.log(num1);
-    console.log(str);
-  }
-  num1Status === false ? num1.pop() : num2.pop();
-  flag = false;
-  calcDisplay.textContent =
-    calcDisplay.textContent.length > 1
-      ? calcDisplay.textContent.slice(0, -1) // * Remove the last string from the display
-      : 0;
-});
-
+//calcClear.addEventListener("click", () => {
+//  //check if array is num1 or num2 and pop it
+//  if (calcDisplay.textContent == "0") {
+//    clearAllCalc();
+//  }
+//  if (num2.length === 0) {
+//    operator = null;
+//    // If user deletes one digit that was a result of previous calculation and attempts to calculate result
+//    let str = num1.join("");
+//    console.log(str);
+//    str = str.slice(0, str.length - 1);
+//    num1.splice(0, num1.length); //clear previous num1 before popping
+//    num1.push(str);
+//    console.log(num1);
+//    console.log(str);
+//  }
+//  num1Status === false ? num1.pop() : num2.pop();
+//  flag = false;
+//  calcDisplay.textContent =
+//    calcDisplay.textContent.length > 1
+//      ? calcDisplay.textContent.slice(0, -1) // * Remove the last string from the display
+//      : 0;
+//});
+//
 calcToggle.addEventListener("click", (e) => {
   calcDisplay.textContent += e.target.dataset.toggle;
 });
