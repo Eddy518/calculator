@@ -106,7 +106,6 @@
   transition-delay: 10ms;
 }
 .calc-footer {
-  /* border: 2px dotted lightseagreen; */
   border: 2px dotted #331c0c;
   padding: 12px;
   display: flex;
