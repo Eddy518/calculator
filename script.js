@@ -5,7 +5,7 @@ const calcAllClear = document.querySelector(".btn-all-clear");
 //const calcClear = document.querySelector(".btn-clear");
 const calcEquals = document.querySelector(".btn-equals");
 const calcDecimal = document.querySelector(".btn-decimal");
-const calcToggle = document.querySelector(".btn-toggle");
+// const calcToggle = document.querySelector(".btn-toggle");
 const buttonSound = new Audio("assets/audio/btn-click.mp3");
 calcDisplay.textContent = 0;
 
@@ -128,9 +128,9 @@ calcAllClear.addEventListener("click", () => {
   clearAllCalc();
 });
 
-calcToggle.addEventListener("click", (e) => {
-  calcDisplay.textContent += e.target.dataset.toggle;
-});
+//calcToggle.addEventListener("click", (e) => {
+//  calcDisplay.textContent += e.target.dataset.toggle;
+//});
 
 //calcClear.addEventListener("click", () => {
 //  //check if array is num1 or num2 and pop it

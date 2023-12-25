@@ -127,3 +127,6 @@
   transition: 2.5s;
   transform: rotateY(180deg);
 }
+.btn {
+  color: cornsilk;
+}
