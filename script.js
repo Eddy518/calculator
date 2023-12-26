@@ -7,6 +7,7 @@ const calcEquals = document.querySelector(".btn-equals");
 const calcDecimal = document.querySelector(".btn-decimal");
 const buttonSound = new Audio("assets/audio/btn-click.mp3");
 const calcPercent = document.querySelector(".btn-percentage");
+const calcExponent = document.querySelector(".btn-exponent");
 calcDisplay.textContent = 0;
 
 let flag = false;
@@ -144,6 +145,25 @@ calcPercent.addEventListener("click", () => {
     num2.push(percentNum);
     calcDisplay.textContent =
       calcDisplay.textContent.slice(0, -length) + percentNum;
+  }
+});
+
+calcExponent.addEventListener("click", () => {
+  let num;
+  if (!num1Status) {
+    num = Number(num1.join(""));
+    const exponentNum = "" + num ** 2; //convert num to string
+    num1 = [];
+    num1.push(exponentNum);
+    calcDisplay.textContent = exponentNum;
+  } else {
+    const length = num2.length;
+    num = Number(num2.join(""));
+    const exponentNum = "" + num ** 2; //convert num to string
+    num2 = [];
+    num2.push(exponentNum);
+    calcDisplay.textContent =
+      calcDisplay.textContent.slice(0, -length) + exponentNum;
   }
 });
 
