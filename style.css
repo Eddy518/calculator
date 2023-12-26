@@ -43,6 +43,7 @@
   font-family: "regista", Arial, sans-serif;
 }
 .calc-display {
+  overflow: hidden;
   height: 65px;
   border-radius: 6px;
   font-family: "Calculator", Arial, sans-serif;

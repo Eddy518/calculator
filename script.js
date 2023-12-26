@@ -2,7 +2,7 @@ const calcDisplay = document.querySelector(".calc-display");
 const calcNumbers = document.querySelectorAll(".btn-number");
 const calcOperators = document.querySelectorAll(".btn-operator");
 const calcAllClear = document.querySelector(".btn-all-clear");
-//const calcClear = document.querySelector(".btn-clear");
+const calcClear = document.querySelector(".btn-clear");
 const calcEquals = document.querySelector(".btn-equals");
 const calcDecimal = document.querySelector(".btn-decimal");
 const buttonSound = new Audio("assets/audio/btn-click.mp3");
@@ -164,6 +164,27 @@ calcExponent.addEventListener("click", () => {
     num2.push(exponentNum);
     calcDisplay.textContent =
       calcDisplay.textContent.slice(0, -length) + exponentNum;
+  }
+});
+
+calcClear.addEventListener("click", () => {
+  const arr = [...calcDisplay.textContent];
+  if (arr.length > 0) {
+    arr.pop();
+    const operators = /[+\-*/]/;
+    if (!arr.includes("+")) {
+      operator = null;
+      num1.pop();
+    } else {
+      num2.pop();
+    }
+    const newText = arr.join("");
+    console.log(newText);
+    calcDisplay.textContent = newText;
+    console.log(arr);
+  } else {
+    calcDisplay.textContent = 0;
+    clearAllCalc();
   }
 });
 
