@@ -64,10 +64,12 @@
   justify-content: center;
   gap: 12px;
 }
-.btn-number {
+.btn-number,
+.btn-percentage {
   background-color: rgb(82, 13, 82);
 }
-.btn-number:hover {
+.btn-number:hover,
+.btn-percentage:hover {
   background-color: rgba(128, 0, 128, 0.403);
 }
 .btn-operator,
