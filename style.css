@@ -7,6 +7,8 @@
   margin: 0;
   padding: 0;
   background-color: var(--primary-bkg-clr);
+}
+* :where(.calc-icon, .btn, .calc-btn-wrapper, .calc-row) {
   user-select: none;
 }
 :root {
