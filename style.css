@@ -73,11 +73,11 @@
   background-color: rgba(128, 0, 128, 0.403);
 }
 .btn-operator,
-.btn-toggle {
+.btn-exponent {
   background-color: #913516;
 }
 .btn-operator:hover,
-.btn-toggle:hover {
+.btn-exponent:hover {
   background-color: #91351691;
 }
 .btn-clear,
@@ -131,4 +131,7 @@
 }
 .btn {
   color: cornsilk;
+}
+sup {
+  background: none;
 }

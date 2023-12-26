@@ -5,7 +5,6 @@ const calcAllClear = document.querySelector(".btn-all-clear");
 //const calcClear = document.querySelector(".btn-clear");
 const calcEquals = document.querySelector(".btn-equals");
 const calcDecimal = document.querySelector(".btn-decimal");
-// const calcToggle = document.querySelector(".btn-toggle");
 const buttonSound = new Audio("assets/audio/btn-click.mp3");
 const calcPercent = document.querySelector(".btn-percentage");
 calcDisplay.textContent = 0;
@@ -147,10 +146,6 @@ calcPercent.addEventListener("click", () => {
       calcDisplay.textContent.slice(0, -length) + percentNum;
   }
 });
-
-//calcToggle.addEventListener("click", (e) => {
-//  calcDisplay.textContent += e.target.dataset.toggle;
-//});
 
 //calcClear.addEventListener("click", () => {
 //  //check if array is num1 or num2 and pop it
