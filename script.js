@@ -5,9 +5,9 @@ const calcAllClear = document.querySelector(".btn-all-clear");
 const calcClear = document.querySelector(".btn-clear");
 const calcEquals = document.querySelector(".btn-equals");
 const calcDecimal = document.querySelector(".btn-decimal");
-const buttonSound = new Audio("assets/audio/btn-click.mp3");
 const calcPercent = document.querySelector(".btn-percentage");
 const calcExponent = document.querySelector(".btn-exponent");
+const buttonSound = new Audio("assets/audio/btn-click.mp3");
 calcDisplay.textContent = 0;
 
 let flag = false;
