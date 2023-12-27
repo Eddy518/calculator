@@ -8,7 +8,7 @@
   padding: 0;
   background-color: var(--primary-bkg-clr);
 }
-* :where(.calc-icon, .btn, .calc-btn-wrapper, .calc-row) {
+* :where(.calc-icon, .btn, .calc-btn-wrapper, .calc-row, pre) {
   user-select: none;
 }
 :root {
@@ -18,6 +18,7 @@
 }
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   height: 75vh;
   align-items: center;
