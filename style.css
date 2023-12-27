@@ -16,6 +16,10 @@
   --primary-bkg-clr: #52453c;
   --calc-display-clr: rgb(147, 17, 17);
 }
+pre {
+  font-weight: lighter;
+  font-size: 10px;
+}
 .container {
   display: flex;
   flex-direction: column;

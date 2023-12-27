@@ -180,6 +180,7 @@ calcClear.addEventListener("click", () => {
       if (num1.length == calcDisplay.textContent.length) {
         // prevents num1 from being popped after user clears only operator
         num1.pop();
+        num1Status = false;
       }
     } else {
       num2.pop();
