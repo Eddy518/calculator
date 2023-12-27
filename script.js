@@ -171,10 +171,17 @@ calcClear.addEventListener("click", () => {
   const arr = [...calcDisplay.textContent];
   if (arr.length > 0) {
     arr.pop();
-    const operators = /[+\-*/]/;
-    if (!arr.includes("+")) {
-      operator = null;
-      num1.pop();
+    function containsOperator(arr) {
+      const operators = /[+\-*/]/;
+      return arr.some((element) => operators.test(element));
+    }
+    if (!containsOperator(arr)) {
+      num1Status = true; //num1 exists at this point so push to num2
+      operator = null; //prepare operator for next operation
+      if (num1.length == calcDisplay.textContent.length) {
+        // prevents num1 from being popped after user clears only operator
+        num1.pop();
+      }
     } else {
       num2.pop();
     }
