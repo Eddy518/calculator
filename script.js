@@ -50,6 +50,7 @@ function clearAllCalc() {
   num1Status = false;
   num1 = [];
   num2 = [];
+  calcDisplay.textContent = 0;
 }
 
 function clearOperand() {
@@ -124,8 +125,6 @@ calcEquals.addEventListener("click", () => {
 });
 
 calcAllClear.addEventListener("click", () => {
-  calcDisplay.textContent = "";
-  calcDisplay.textContent = 0;
   clearAllCalc();
 });
 
@@ -169,7 +168,7 @@ calcExponent.addEventListener("click", () => {
 
 calcClear.addEventListener("click", () => {
   const arr = [...calcDisplay.textContent];
-  if (arr.length > 0) {
+  if (arr.length > 1) {
     arr.pop();
     function containsOperator(arr) {
       const operators = /[+\-*/]/;
@@ -186,36 +185,8 @@ calcClear.addEventListener("click", () => {
       num2.pop();
     }
     const newText = arr.join("");
-    console.log(newText);
     calcDisplay.textContent = newText;
-    console.log(arr);
   } else {
-    calcDisplay.textContent = 0;
     clearAllCalc();
   }
 });
-
-//calcClear.addEventListener("click", () => {
-//  //check if array is num1 or num2 and pop it
-//  if (calcDisplay.textContent == "0") {
-//    clearAllCalc();
-//  }
-//  if (num2.length === 0) {
-//    operator = null;
-//    // If user deletes one digit that was a result of previous calculation and attempts to calculate result
-//    let str = num1.join("");
-//    console.log(str);
-//    str = str.slice(0, str.length - 1);
-//    num1.splice(0, num1.length); //clear previous num1 before popping
-//    num1.push(str);
-//    console.log(num1);
-//    console.log(str);
-//  }
-//  num1Status === false ? num1.pop() : num2.pop();
-//  flag = false;
-//  calcDisplay.textContent =
-//    calcDisplay.textContent.length > 1
-//      ? calcDisplay.textContent.slice(0, -1) // * Remove the last string from the display
-//      : 0;
-//});
-//
