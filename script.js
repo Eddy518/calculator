@@ -60,7 +60,7 @@ function clearOperand() {
   num1.push(result);
   result = null; //clear result
   num1Status = true;
-  //operator = null;
+  operator = null;
 }
 
 function playSound() {
@@ -72,14 +72,17 @@ function calculate(num1, num2, operator) {
   let first = Number(num1.join(""));
   let second = Number(num2.join(""));
   result = operate(first, operator, second);
-  if (!Number.isInteger(result)) {
-    result = result.toFixed(10);
-    if (result.endsWith(0)) {
-      result = result.replace(/\.?0+$/, "");
+  if (result) {
+    if (!Number.isInteger(result)) {
+      result = result.toFixed(10);
+      if (result.endsWith(0)) {
+        result = result.replace(/\.?0+$/, "");
+      }
     }
+
+    calcDisplay.textContent = result;
+    clearOperand();
   }
-  calcDisplay.textContent = result;
-  clearOperand();
 }
 
 function clearDigit() {
