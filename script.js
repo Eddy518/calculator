@@ -196,6 +196,22 @@ calcClear.addEventListener("click", () => {
   clearDigit();
 });
 
+calcDecimal.addEventListener("click", (e) => {
+  if (num1Status === false) {
+    // If operator is clicked move next set of numbers to second array??
+    if (!num1.includes(".")) {
+      calcDisplay.textContent += e.target.dataset.decimal;
+      num1.push(e.target.dataset.decimal);
+    }
+  } else {
+    // operator = null;
+    if (!num2.includes(".")) {
+      calcDisplay.textContent += e.target.dataset.decimal;
+      num2.push(e.target.dataset.decimal);
+    }
+  }
+});
+
 function checkKey(e) {
   console.log(e);
   switch (e.key) {
