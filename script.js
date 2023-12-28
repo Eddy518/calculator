@@ -82,6 +82,32 @@ function calculate(num1, num2, operator) {
   clearOperand();
 }
 
+function clearDigit() {
+  const arr = [...calcDisplay.textContent];
+  if (arr.length > 1) {
+    arr.pop();
+    function containsOperator(arr) {
+      const operators = /[+\-*/]/;
+      return arr.some((element) => operators.test(element));
+    }
+    if (!containsOperator(arr)) {
+      num1Status = true; //num1 exists at this point so push to num2
+      operator = null; //prepare operator for next operation
+      if (num1.length == calcDisplay.textContent.length) {
+        // prevents num1 from being popped after user clears only operator
+        num1.pop();
+        num1Status = false;
+      }
+    } else {
+      num2.pop();
+    }
+    const newText = arr.join("");
+    calcDisplay.textContent = newText;
+  } else {
+    clearAllCalc();
+  }
+}
+
 calcNumbers.forEach((btn) => {
   btn.addEventListener("click", () => {
     playSound();
@@ -167,27 +193,18 @@ calcExponent.addEventListener("click", () => {
 });
 
 calcClear.addEventListener("click", () => {
-  const arr = [...calcDisplay.textContent];
-  if (arr.length > 1) {
-    arr.pop();
-    function containsOperator(arr) {
-      const operators = /[+\-*/]/;
-      return arr.some((element) => operators.test(element));
-    }
-    if (!containsOperator(arr)) {
-      num1Status = true; //num1 exists at this point so push to num2
-      operator = null; //prepare operator for next operation
-      if (num1.length == calcDisplay.textContent.length) {
-        // prevents num1 from being popped after user clears only operator
-        num1.pop();
-        num1Status = false;
-      }
-    } else {
-      num2.pop();
-    }
-    const newText = arr.join("");
-    calcDisplay.textContent = newText;
-  } else {
-    clearAllCalc();
-  }
+  clearDigit();
 });
+
+function checkKey(e) {
+  console.log(e);
+  switch (e.key) {
+    case "Backspace":
+      clearDigit();
+      break;
+    case "c":
+      clearAllCalc();
+      break;
+  }
+}
+document.addEventListener("keydown", checkKey);
