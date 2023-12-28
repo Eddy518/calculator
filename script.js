@@ -282,5 +282,21 @@ function checkKey(e) {
   if (e.key === "%") {
     getPercentage();
   }
+
+  if (e.key === ".") {
+    if (num1Status === false) {
+      // If operator is clicked move next set of numbers to second array??
+      if (!num1.includes(".")) {
+        calcDisplay.textContent += e.key;
+        num1.push(e.key);
+      }
+    } else {
+      // operator = null;
+      if (!num2.includes(".")) {
+        calcDisplay.textContent += e.key;
+        num2.push(e.key);
+      }
+    }
+  }
 }
 document.addEventListener("keydown", checkKey);
