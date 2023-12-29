@@ -16,6 +16,7 @@ let num1 = [];
 let num2 = [];
 let operator;
 let result = 0;
+let arr;
 
 function add(num1, num2) {
   return num1 + num2;
@@ -59,7 +60,7 @@ function clearOperand() {
   result = result.toString();
   num1.push(result);
   result = null; //clear result
-  num1Status = true;
+  num1Status = false;
   operator = null;
 }
 
@@ -79,14 +80,15 @@ function calculate(num1, num2, operator) {
         result = result.replace(/\.?0+$/, "");
       }
     }
-
     calcDisplay.textContent = result;
+    arr = [...calcDisplay.textContent];
     clearOperand();
   }
 }
 
 function clearDigit() {
-  const arr = [...calcDisplay.textContent];
+  arr = [...calcDisplay.textContent];
+  console.log(arr);
   if (arr.length > 1) {
     arr.pop();
     function containsOperator(arr) {
@@ -224,7 +226,6 @@ calcDecimal.addEventListener("click", (e) => {
 });
 
 function checkKey(e) {
-  console.log(e);
   const num = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
   const operatorArr = ["*", "+", "-", "/"];
 
@@ -246,7 +247,6 @@ function checkKey(e) {
   }
 
   if (operatorArr.includes(e.key)) {
-    console.log("includes operator");
     playSound();
     if (!operator) {
       //only if there is no operator
