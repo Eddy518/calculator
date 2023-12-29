@@ -16,7 +16,8 @@ To showcase understanding of JavaScript fundamentals and DOM manipulation skills
 
 Here's what to watch out for:
 
-- Popup for viewing keyboard shortcuts on the fly.
+- Pop-up for viewing keyboard shortcuts on the fly 🔥.
+- Mobile support 📱.
 
 ## Keyboard shortcuts [](keyboard-shortcuts)
 
