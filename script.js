@@ -16,7 +16,7 @@ let num1 = [];
 let num2 = [];
 let operator;
 let result = 0;
-let arr;
+let arr = ["0"];
 
 function add(num1, num2) {
   return num1 + num2;
@@ -58,9 +58,9 @@ function clearOperand() {
   num1 = [];
   num2 = [];
   result = result.toString();
-  num1.push(result);
+  num1.push(...result);
   result = null; //clear result
-  num1Status = false;
+  num1Status = true;
   operator = null;
 }
 
@@ -88,7 +88,6 @@ function calculate(num1, num2, operator) {
 
 function clearDigit() {
   arr = [...calcDisplay.textContent];
-  console.log(arr);
   if (arr.length > 1) {
     arr.pop();
     function containsOperator(arr) {
