@@ -3,8 +3,9 @@
   src: url("assets/fonts/regista/Regista.ttf");
 }
 @font-face {
-  font-family: "brotherside-signature";
-  src: url("assets/fonts/brotherside-signature/BrothersideSignature-w13o6.otf");
+  font-family: "brothersideSignature";
+  src: url("assets/fonts/brothersideSignature/BrothersideSignature-w13o6.otf")
+    format("opentype");
 }
 * {
   box-sizing: border-box;
