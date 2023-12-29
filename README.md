@@ -2,7 +2,7 @@
 
 # TABLE OF CONTENTS
 
-1.[Description](#Description)<br>2.[Purpose](#Purpose)<br>3.[Upcoming features](#upcoming-features)<br>4.[Link]()
+1.[Description](##Description)<br>2.[Purpose](##Purpose)<br>3.[Upcoming features](##upcoming-features)<br>4.[Keyboard shortcuts](##keyboard-shortcuts)<br>5.[Link]()
 
 ## Description
 
@@ -16,10 +16,18 @@ To showcase understanding of JavaScript fundamentals and DOM manipulation skills
 
 Here's what to watch out for:
 
-- Keyboard support.
-- Backspace/clear button full functionality.
-- Percentage button
-- More error handling.
+- Popup for viewing keyboard shortcuts on the fly.
+
+## Keyboard shortcuts [](keyboard-shortcuts)
+
+| On-screen symbol | Keyboard Shortcut |
+| ---------------- | ----------------- |
+| =                | = or Enter        |
+| AC               | c                 |
+| C                | Backspace         |
+| x power 2        | p                 |
+
+The rest of the button's shortcuts correspond to their symbols.
 
 ## Link
 

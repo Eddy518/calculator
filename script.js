@@ -7,6 +7,7 @@ const calcEquals = document.querySelector(".btn-equals");
 const calcDecimal = document.querySelector(".btn-decimal");
 const calcPercent = document.querySelector(".btn-percentage");
 const calcExponent = document.querySelector(".btn-exponent");
+const copyrightYear = document.querySelector(".copyright");
 const buttonSound = new Audio("assets/audio/btn-click.mp3");
 calcDisplay.textContent = 0;
 
@@ -299,3 +300,4 @@ function checkKey(e) {
   }
 }
 document.addEventListener("keydown", checkKey);
+copyrightYear.textContent = new Date().getFullYear();

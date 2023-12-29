@@ -2,13 +2,17 @@
   font-family: "regista";
   src: url("assets/fonts/regista/Regista.ttf");
 }
+@font-face {
+  font-family: "brotherside-signature";
+  src: url("assets/fonts/brotherside-signature/");
+}
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   background-color: var(--primary-bkg-clr);
 }
-* :where(.calc-icon, .btn, .calc-btn-wrapper, .calc-row, pre) {
+* :where(.calc-icon, .btn, .calc-btn-wrapper, .calc-row, pre, .footer) {
   user-select: none;
 }
 :root {
@@ -144,4 +148,19 @@ pre {
 }
 sup {
   background: none;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  line-height: 1.4;
+  font-weight: lighter;
+  padding-bottom: 8px;
+}
+.name {
+  font-family: "brotherside-signature", Arial, sans-serif;
+  color: var(--primary-clr);
+  background-color: #590912;
+  padding: 2px;
+  border-radius: 12px;
 }
